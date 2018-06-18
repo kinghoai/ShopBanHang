@@ -8,14 +8,6 @@ import { StackNavigator } from 'react-navigation';
 
 StatusBar.setHidden(true);
 
-// export class App extends Component {
-//   render() {
-//     return (
-//         <Main/>
-//     );
-//   }
-// }
-
 export const App = StackNavigator({
   Main: { screen: Main },
   Authentication: { screen: Authentication },

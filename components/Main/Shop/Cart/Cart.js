@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-export class Menu extends Component {
+export class Cart extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>
-          Menu Componenttttt
+          Cart Componenttttt
         </Text>
-        <TouchableOpacity>
-          <Text>Close menu</Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -19,6 +16,6 @@ export class Menu extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'yellow',
+    backgroundColor: '#6B52AE',
   },
 });
