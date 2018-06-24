@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         height: height / 8, 
         backgroundColor: '#34B089', 
         padding: 10, 
-        justifyContent: 'space-around' 
+        justifyContent: 'space-around'
     },
     row1: { flexDirection: 'row', justifyContent: 'space-between' },
     textInput: { 
