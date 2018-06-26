@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import { Collection } from './Collection';
-import { Header } from '../Header';
-import { Category } from './Category';
-import { TopProduct } from './TopProduct';
+import { HomeView } from './HomeView';
+import { ProductDetail } from '../ProductDetail/ProductDetail';
+import { ListProduct } from '../ListProduct/ListProduct';
 
-export class Home extends Component {
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <Header onPress={() => this.props.navigation.openDrawer()} />
-        <Collection/>
-        <Category/>
-        <TopProduct/>
-      </ScrollView>
-    );
-  }
+export const Home = StackNavigator({
+  Home: { screen: HomeView },
+  ProductDetail: { screen: ProductDetail },
+  ListProduct: { screen: ListProduct },
+},
+{
+  headerMode: 'none',
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#DAD9D7',
-  },
-});
+)

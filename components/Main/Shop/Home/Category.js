@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Dimensions, Image, ImageBackground} from 'react-native';
+import { Text, View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 
 import slide1 from '../../../../media/temp/maxi.jpg';
@@ -12,24 +12,33 @@ const { width } = Dimensions.get('window');
 export class Category extends Component {
     render() {
         const { wapper, textTitle, banerStyle, cateTitle } = styles;
+        const { onPress } = this.props;
         return (
             <View style={wapper}>
                 <View>
                     <Text style={textTitle}>LIST OF CATEGORY</Text>
                 </View>
                 <Swiper showsButtons={true}>
-                    <ImageBackground  source={slide1} style={banerStyle}>
-                        <Text style={cateTitle}>Maxi Dress</Text>
-                    </ImageBackground >
-                    <ImageBackground  source={slide2} style={banerStyle}>
-                        <Text style={cateTitle}>Maxi Dress</Text>
-                    </ImageBackground >
-                    <ImageBackground  source={slide3} style={banerStyle}>
-                        <Text style={cateTitle}>Maxi Dress</Text>
-                    </ImageBackground >
-                    <ImageBackground  source={slide4} style={banerStyle}>
-                        <Text style={cateTitle}>Maxi Dress</Text>
-                    </ImageBackground >
+                    <TouchableOpacity onPress={onPress}>
+                        <ImageBackground source={slide1} style={banerStyle}>
+                            <Text style={cateTitle}>Maxi Dress</Text>
+                        </ImageBackground >
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={onPress}>
+                        <ImageBackground source={slide2} style={banerStyle}>
+                            <Text style={cateTitle}>Maxi Dress</Text>
+                        </ImageBackground >
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={onPress}>
+                        <ImageBackground source={slide3} style={banerStyle}>
+                            <Text style={cateTitle}>Maxi Dress</Text>
+                        </ImageBackground >
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={onPress}>
+                        <ImageBackground source={slide4} style={banerStyle}>
+                            <Text style={cateTitle}>Maxi Dress</Text>
+                        </ImageBackground >
+                    </TouchableOpacity>
                 </Swiper>
             </View>
         )

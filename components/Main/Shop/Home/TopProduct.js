@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import sp1 from '../../../../media/temp/sp1.jpeg';
 import sp2 from '../../../../media/temp/sp2.jpeg';
@@ -8,6 +9,7 @@ import sp4 from '../../../../media/temp/sp4.jpeg';
 
 export class TopProduct extends Component {
     render() {
+        const { onPress } = this.props;
         const { 
             container, titleContainer, title, 
             body, productContainer, productImage,
@@ -19,23 +21,23 @@ export class TopProduct extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    <TouchableOpacity style={productContainer}>
+                    <TouchableOpacity style={productContainer} onPress={onPress}>
                         <Image source={sp1} style={productImage} />
                         <Text style={produceName}>PRODUCT NAME</Text>
                         <Text style={producePrice}>400$</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={productContainer}>
+                    <TouchableOpacity style={productContainer} onPress={onPress}>
                         <Image source={sp2} style={productImage} />
                         <Text style={produceName}>PRODUCT NAME</Text>
                         <Text style={producePrice}>250$</Text>
                     </TouchableOpacity>
                     <View style={{ height: 10, width }} />
-                    <TouchableOpacity style={productContainer}>
+                    <TouchableOpacity style={productContainer} onPress={onPress}>
                         <Image source={sp3} style={productImage} />
                         <Text style={produceName}>PRODUCT NAME</Text>
                         <Text style={producePrice}>400$</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={productContainer}>
+                    <TouchableOpacity style={productContainer} onPress={onPress}>
                         <Image source={sp4} style={productImage} />
                         <Text style={produceName}>PRODUCT NAME</Text>
                         <Text style={producePrice}>250$</Text>
