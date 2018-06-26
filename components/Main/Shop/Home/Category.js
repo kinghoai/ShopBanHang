@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, Dimensions, Image } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-import slide1 from '../../../media/temp/maxi.jpg';
-import slide2 from '../../../media/temp/midi.jpg';
-import slide3 from '../../../media/temp/mini.jpg';
-import slide4 from '../../../media/temp/party.jpg';
+import slide1 from '../../../../media/temp/maxi.jpg';
+import slide2 from '../../../../media/temp/midi.jpg';
+import slide3 from '../../../../media/temp/mini.jpg';
+import slide4 from '../../../../media/temp/party.jpg';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export class Category extends Component {
     render() {

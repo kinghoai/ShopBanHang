@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
 export class Menu extends Component {
   render() {

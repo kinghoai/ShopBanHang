@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet, ScrollView, } from 'react-native';
 
-import { Collection } from '../Collection';
+import { Collection } from './Collection';
 import { Header } from '../Header';
-import { Category } from '../Category';
+import { Category } from './Category';
+import { TopProduct } from './TopProduct';
 
 export class Home extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Header onPress={() => this.props.navigation.openDrawer()} />
         <Collection/>
         <Category/>
-      </View>
+        <TopProduct/>
+      </ScrollView>
     );
   }
 }
