@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View,} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import { Header } from '../Header';
-export class Search extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-      <Header onPress={()=>this.props.navigation.openDrawer()}/>
-        <Text>
-        Search Componenttttt
-        </Text>
-      </View>
-    );
-  }
+import { SearchView } from './SearchView';
+import { ProductDetail } from '../ProductDetail/ProductDetail';
+
+export const Search = StackNavigator({
+  Search: { screen: SearchView },
+  ProductDetail: { screen: ProductDetail },
+},
+{
+  headerMode: 'none',
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#A7ACDB',
-  },
-});
+)
