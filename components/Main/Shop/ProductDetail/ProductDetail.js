@@ -14,6 +14,9 @@ const cart = require('../../../../media/appIcon/cartfull.png');
 export class ProductDetail extends Component {
     render() {
         const { goBack } = this.props.navigation;
+        const { navigation } = this.props;
+        const name = navigation.getParam('name');
+        // const otherParam = navigation.getParam('otherParam', 'some default value');
         const {
             wrapper, cardStyle, header,
             footer, backStyle,
@@ -41,15 +44,15 @@ export class ProductDetail extends Component {
                     <View style={footer}>
                         <View style={titleContainer}>
                             <Text style={textMain}>
-                                <Text style={textBlack}>{'back of the'.toUpperCase()}</Text>
+                                <Text style={textBlack}>{name}</Text>
                                 <Text style={textHighlight}> / </Text>
-                                <Text style={textSmoke}>100$</Text>
+                                <Text style={textSmoke}>$100</Text>
                             </Text>
                         </View>
                         <View style={descContainer}>
                             <Text style={descStyle}>A delicate layer of eyelash lace brings dreamy elegance to this piece, while smooth, lightweight lining feels luxurious against your skin. We love it with heels for a look that fits in on date night, or with cool booties to add an edge.</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 15 }}>
-                                <Text style={txtMaterial}>Material Fur</Text>
+                                <Text style={txtMaterial}>ahihihi</Text>
                                 <View style={{ flexDirection: 'row' }} >
                                     <Text style={txtColor}>Color Black</Text>
                                     <View style={{ height: 15, width: 15, backgroundColor: 'black'.toLowerCase(), borderRadius: 15, marginLeft: 10, borderWidth: 1, borderColor: '#C21C70' }} />

@@ -34,13 +34,16 @@ componentDidMount() {
   });
 }
   render() {
+    const { types, products } = this.state;
       const { navigate } = this.props.navigation;
     return (
       <ScrollView style={styles.container}>
         <Header onPress={() => this.props.navigation.openDrawer()} />
         <Collection/>
-        <Category  onPress={()=>navigate('ListProduct')} types={this.state.types}/>
-        <TopProduct onPress={()=>navigate('ProductDetail')} products={this.state.products}/>
+        <Category  onPress={()=>navigate('ListProduct')} types={types}/>
+        <TopProduct onPress={()=>navigate('ProductDetail', {
+          name: products[1].name,
+        })} products={products}/>
       </ScrollView>
     );
   }

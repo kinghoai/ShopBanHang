@@ -20,7 +20,7 @@ export class TopProduct extends Component {
                     {products.map(e => (
                         <TouchableOpacity style={productContainer} onPress={onPress} key = {e.id}>
                             <Image source={{uri: `${url}${e.images[0]}`}} style={productImage} />
-                            <Text style={productName}>{e.name}</Text>
+                            <Text style={productName}>{e.name.toUpperCase()}</Text>
                             <Text style={productPrice}>{e.price}</Text>
                         </TouchableOpacity>
                     ))}
