@@ -5,6 +5,7 @@ import {
     Image, Dimensions
  } from 'react-native';
 
+import {Header} from '../Header';
 import backList from '../../../../media/appIcon/backList.png';
 import sp1 from '../../../../media/temp/sp1.jpeg';
 
@@ -30,6 +31,7 @@ export class ListProduct extends Component {
             //     </TouchableOpacity>
             // </View>
             <View style={container}>
+                <Header onPress={() => this.props.navigation.openDrawer()} />
                 <ScrollView style={wrapper}>
                     <View style={header}>
                         <TouchableOpacity onPress={()=> goBack()}>

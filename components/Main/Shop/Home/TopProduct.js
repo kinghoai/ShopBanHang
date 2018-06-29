@@ -1,47 +1,30 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
-import sp1 from '../../../../media/temp/sp1.jpeg';
-import sp2 from '../../../../media/temp/sp2.jpeg';
-import sp3 from '../../../../media/temp/sp3.jpeg';
-import sp4 from '../../../../media/temp/sp4.jpeg';
-
+const url = 'http://kunkinapartment.xyz/images/product/';
 export class TopProduct extends Component {
     render() {
-        const { onPress } = this.props;
+        const { onPress, products } = this.props;
         const { 
             container, titleContainer, title, 
             body, productContainer, productImage,
             productName, productPrice 
         } = styles;
+        
         return (
             <View style={container}>
                 <View style={titleContainer}>
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    <TouchableOpacity style={productContainer} onPress={onPress}>
-                        <Image source={sp1} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>400$</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={productContainer} onPress={onPress}>
-                        <Image source={sp2} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>250$</Text>
-                    </TouchableOpacity>
-                    <View style={{ height: 10, width }} />
-                    <TouchableOpacity style={productContainer} onPress={onPress}>
-                        <Image source={sp3} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>400$</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={productContainer} onPress={onPress}>
-                        <Image source={sp4} style={productImage} />
-                        <Text style={productName}>PRODUCT NAME</Text>
-                        <Text style={productPrice}>250$</Text>
-                    </TouchableOpacity>
+                    {products.map(e => (
+                        <TouchableOpacity style={productContainer} onPress={onPress} key = {e.id}>
+                            <Image source={{uri: `${url}${e.images[0]}`}} style={productImage} />
+                            <Text style={productName}>{e.name}</Text>
+                            <Text style={productPrice}>{e.price}</Text>
+                        </TouchableOpacity>
+                    ))}
+                    
                 </View>
             </View>
         );
@@ -49,8 +32,8 @@ export class TopProduct extends Component {
 }
 
 const { width } = Dimensions.get('window');
-const produtWidth = (width - 60) / 2;
-const productImageHeight = (produtWidth / 361) * 452; 
+const productWidth = (width - 60) / 2;
+const productImageHeight = (productWidth / 361) * 452; 
 
 const styles = StyleSheet.create({
     container: {
@@ -76,13 +59,13 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     },
     productContainer: {
-        width: produtWidth,
+        width: productWidth,
         shadowColor: '#2E272B',
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2
     },
     productImage: {
-        width: produtWidth,
+        width: productWidth,
         height: productImageHeight
     },
     productName: {
