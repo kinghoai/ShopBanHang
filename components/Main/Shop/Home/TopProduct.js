@@ -17,11 +17,11 @@ export class TopProduct extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    {products.map(e => (
-                        <TouchableOpacity style={productContainer} onPress={onPress} key = {e.id}>
-                            <Image source={{uri: `${url}${e.images[0]}`}} style={productImage} />
-                            <Text style={productName}>{e.name.toUpperCase()}</Text>
-                            <Text style={productPrice}>{e.price}</Text>
+                    {products.map(item => (
+                        <TouchableOpacity style={productContainer} onPress={()=>onPress(item)} key = {item.id}>
+                            <Image source={{uri: `${url}${item.images[0]}`}} style={productImage} />
+                            <Text style={productName}>{item.name.toUpperCase()}</Text>
+                            <Text style={productPrice}>{item.price}</Text>
                         </TouchableOpacity>
                     ))}
                     

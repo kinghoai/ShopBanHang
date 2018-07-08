@@ -15,7 +15,7 @@ export class ProductDetail extends Component {
     render() {
         const { goBack } = this.props.navigation;
         const { navigation } = this.props;
-        const name = navigation.getParam('name');
+        const item = navigation.getParam('item');
         // const otherParam = navigation.getParam('otherParam', 'some default value');
         const {
             wrapper, cardStyle, header,
@@ -44,17 +44,17 @@ export class ProductDetail extends Component {
                     <View style={footer}>
                         <View style={titleContainer}>
                             <Text style={textMain}>
-                                <Text style={textBlack}>{name}</Text>
+                                <Text style={textBlack}>{item.name}</Text>
                                 <Text style={textHighlight}> / </Text>
-                                <Text style={textSmoke}>$100</Text>
+                                <Text style={textSmoke}>${item.price}</Text>
                             </Text>
                         </View>
                         <View style={descContainer}>
-                            <Text style={descStyle}>A delicate layer of eyelash lace brings dreamy elegance to this piece, while smooth, lightweight lining feels luxurious against your skin. We love it with heels for a look that fits in on date night, or with cool booties to add an edge.</Text>
+                            <Text style={descStyle}>{item.description}</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 15 }}>
-                                <Text style={txtMaterial}>ahihihi</Text>
+                                <Text style={txtMaterial}>{item.material}</Text>
                                 <View style={{ flexDirection: 'row' }} >
-                                    <Text style={txtColor}>Color Black</Text>
+                                    <Text style={txtColor}>Color {item.color}</Text>
                                     <View style={{ height: 15, width: 15, backgroundColor: 'black'.toLowerCase(), borderRadius: 15, marginLeft: 10, borderWidth: 1, borderColor: '#C21C70' }} />
                                 </View>
                             </View>

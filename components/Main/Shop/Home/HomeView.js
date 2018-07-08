@@ -18,10 +18,11 @@ export class HomeView extends Component {
 // componentDidMount() {
 //   const URL = "http://kunkinapartment.xyz/";
 //   axios.get(URL)
-//   .then((response) => {
-//     const { type } = response;
-//     this.setState({ types: type });
-//   })
+//   .then(response=> response.json())
+  // .then(responseJSON => {
+  //   const { type, product } = responseJSON;
+  //   this.setState({ types: type, products: product });
+  // });
 //   .catch(error => console.log(error))
 // }
 componentDidMount() {
@@ -41,9 +42,7 @@ componentDidMount() {
         <Header onPress={() => this.props.navigation.openDrawer()} />
         <Collection/>
         <Category  onPress={()=>navigate('ListProduct')} types={types}/>
-        <TopProduct onPress={()=>navigate('ProductDetail', {
-          name: products[1].name,
-        })} products={products}/>
+        <TopProduct onPress={(item)=>navigate('ProductDetail', {item})} products={products}/>
       </ScrollView>
     );
   }
