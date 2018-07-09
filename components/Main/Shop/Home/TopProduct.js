@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, FlatList } from 'react-native';
 
 const url = 'http://kunkinapartment.xyz/images/product/';
 export class TopProduct extends Component {
@@ -17,14 +17,18 @@ export class TopProduct extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    {products.map(item => (
-                        <TouchableOpacity style={productContainer} onPress={()=>onPress(item)} key = {item.id}>
-                            <Image source={{uri: `${url}${item.images[0]}`}} style={productImage} />
-                            <Text style={productName}>{item.name.toUpperCase()}</Text>
-                            <Text style={productPrice}>{item.price}</Text>
-                        </TouchableOpacity>
-                    ))}
-                    
+                    <FlatList
+                        data={products}
+                        renderItem={({item})=>(
+                            <TouchableOpacity style={productContainer} onPress={()=>onPress(item)}>
+                                <Image source={{uri: `${url}${item.images[0]}`}} style={productImage} />
+                                <Text style={productName}>{item.name.toUpperCase()}</Text>
+                                <Text style={productPrice}>{item.price}</Text>
+                            </TouchableOpacity>
+                        )}
+                        keyExtractor={(item) => String(item.id)}
+                        numColumns={2}
+                    />
                 </View>
             </View>
         );
@@ -32,16 +36,15 @@ export class TopProduct extends Component {
 }
 
 const { width } = Dimensions.get('window');
-const productWidth = (width - 60) / 2;
+const productWidth = (width - 20) / 2;
 const productImageHeight = (productWidth / 361) * 452; 
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
-        margin: 10,
         shadowColor: '#2E272B',
         shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.2
+        shadowOpacity: 0.2,
     },
     titleContainer: {
         height: 50,
@@ -62,7 +65,9 @@ const styles = StyleSheet.create({
         width: productWidth,
         shadowColor: '#2E272B',
         shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.2
+        shadowOpacity: 0.2,
+        paddingLeft: 10,
+        paddingRight:10,
     },
     productImage: {
         width: productWidth,
